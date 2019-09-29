@@ -8,7 +8,21 @@
     "osom": "./bin/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint '**/*.js'",
+    "lint:fix": "prettier-eslint '**/*.js' --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn run lint:fix",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "@sebalinaresl",
@@ -19,5 +33,12 @@
     "commander": "^3.0.2",
     "requirer": "0.0.4",
     "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "husky": "^3.0.7",
+    "lint-staged": "^9.4.0"
   }
 }
