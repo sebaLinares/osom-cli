@@ -1,0 +1,23 @@
+{
+  "name": "osom-cli",
+  "version": "1.0.2",
+  "description": "An OSOM cli for blazing fast project initialization",
+  "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "osom": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "@sebalinaresl",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "colors": "^1.4.0",
+    "commander": "^3.0.2",
+    "requirer": "0.0.4",
+    "shelljs": "^0.8.3"
+  }
+}
