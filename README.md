@@ -17,13 +17,13 @@ Install it with your preffered package manager
 npm:
 
 ```bash
-npm install -g @sebalinaresl/osom-cli
+npm install -g osom-cli
 ```
 
 yarn
 
 ```bash
-yarn add -global @sebalinares/osom-cli
+yarn global add osom-cli
 ```
 
 ## Usage
