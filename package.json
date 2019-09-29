@@ -1,6 +1,6 @@
 {
   "name": "osom-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An OSOM cli for blazing fast project initialization",
   "main": "index.js",
   "preferGlobal": true,
