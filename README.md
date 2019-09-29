@@ -20,10 +20,16 @@ npm:
 npm install -g osom-cli
 ```
 
-yarn
+yarn:
 
 ```bash
 yarn global add osom-cli
+```
+
+or use it one time with `npx`:
+
+```bash
+npx osom-cli osom
 ```
 
 ## Usage
