@@ -1,5 +1,6 @@
 const shell = require('shelljs');
 const axios = require('axios')
+const colors = require('colors')
 
 colors.setTheme({
   custom: ['black', 'bgBrightYellow', 'bold']
