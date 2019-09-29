@@ -1,4 +1,4 @@
-# OSOM CLI
+# OSOM CLI! &middot; [![license-badge](https://img.shields.io/npm/l/osom-cli)](https://github.com/sebaLinares/osom-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/osom-cli)](https://www.npmjs.com/package/osom-cli) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 Tired of all the commands I had to write to create a new project and connect it to a new repo, I thought about a solution in the form a "personal cli". And because open source is _osom_, everyone else can have it an tweak it and whatever you want to do with it.
 
