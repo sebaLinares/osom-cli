@@ -28,6 +28,8 @@ yarn add -global @sebalinares/osom-cli
 
 ## Usage
 
+![osom-cli](https://raw.githubusercontent.com/sebaLinares/screenshots/master/osom-cli/osom-demo.jpg)
+
 ```bash
 # Go to your preffered directory
 mkdir project-name && cd project-name
