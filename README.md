@@ -67,8 +67,6 @@ If you don't know how to contribute to open source I leave you [this link](https
 
 - **Sebastián Linares** - [@Twitter](https://twitter.com/slinaresl)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
