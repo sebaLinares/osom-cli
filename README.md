@@ -1,4 +1,4 @@
-# OSOM CLI! &middot; [![license-badge](https://img.shields.io/npm/l/osom-cli)](https://github.com/sebaLinares/osom-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/osom-cli)](https://www.npmjs.com/package/osom-cli) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+# OSOM CLI! &middot; [![license-badge](https://img.shields.io/npm/l/osom-cli)](https://github.com/sebaLinares/osom-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/osom-cli)](https://www.npmjs.com/package/osom-cli) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Tired of all the commands I had to write to create a new project and connect it to a new repo, I thought about a solution in the form a "personal cli". And because open source is _osom_, everyone else can have it an tweak it and whatever you want to do with it.
 
