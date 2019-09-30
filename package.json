@@ -24,22 +24,33 @@
       "git add"
     ]
   },
-  "keywords": [],
+  "release": {
+    "prepare": [
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  },
+  "keywords": [
+    "cli",
+    "github"
+  ],
   "author": "@sebalinaresl",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0",
-    "colors": "^1.4.0",
-    "commander": "^3.0.2",
+    "axios": "0.19.0",
+    "colors": "1.4.0",
+    "commander": "3.0.2",
     "requirer": "0.0.4",
-    "shelljs": "^0.8.3"
+    "shelljs": "0.8.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "eslint": "^6.5.0",
-    "husky": "^3.0.7",
-    "jest": "^24.9.0",
-    "lint-staged": "^9.4.0"
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@semantic-release/git": "^7.0.16",
+    "eslint": "6.5.0",
+    "husky": "3.0.7",
+    "jest": "24.9.0",
+    "lint-staged": "9.4.0",
+    "semantic-release": "15.13.24"
   }
 }

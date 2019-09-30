@@ -1,10 +1,26 @@
 version: 2
 jobs:
-  build:
+  test_node_lts:
     docker:
       - image: circleci/node:lts
     steps:
       - checkout
-      - run: echo "Running continous integration"
       - run: "npm install"
       - run: "npm run test"
+  release:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run: npm install
+      - run: npx semantic-release@15
+
+workflows:
+  version: 2
+  test_and_release:
+    # Run the test jobs first, then the release only when all the test jobs are successful
+    jobs:
+      - test_node_lts
+      - release:
+          requires:
+            - test_node_lts
