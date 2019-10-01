@@ -30,7 +30,7 @@ module.exports = (username, password, name, description, license) => {
   axios(config).then(res => {
     /* Create README.md */
     console.log("README Created");
-    shell.exec("touch README.md");
+    shell.exec("echo '/node_modules' > .gitignore");
 
     /* Initializa git repository */
     console.log("Running git init".rainbow);
