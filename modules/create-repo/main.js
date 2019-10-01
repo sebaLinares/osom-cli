@@ -28,19 +28,19 @@ module.exports = (username, password, name, description, license) => {
   };
 
   axios(config).then(res => {
-    /* Create README.md */
-    console.log("README Created");
-    shell.exec("echo '/node_modules' > .gitignore");
+    /* Create .gitignore */
+    shell.exec("echo /node_modules > .gitignore");
+    console.log(".gitignore CREATED".custom);
 
     /* Initializa git repository */
-    console.log("Running git init".rainbow);
+    console.log("Running git init".custom);
     shell.exec("git init");
 
     /* Add new file and make first commit */
     shell.exec('git add --all && git commit -m "feat: first commit"');
 
     /* Add remote */
-    console.log("Remote added".trap);
+    console.log("Remote added".custom);
     shell.exec(`git remote add origin ${res.data.clone_url}`);
 
     /* Fetch and rebase local with remote */
