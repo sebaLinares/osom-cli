@@ -4,6 +4,10 @@
   "description": "An OSOM cli for blazing fast project initialization",
   "main": "index.js",
   "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebaLinares/osom-cli.git"
+  },
   "bin": {
     "osom": "./bin/index.js"
   },
