@@ -19,9 +19,8 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-
       # Only test in a feature branch
-      - test_node_lts
+      - test_node_lts:
           filters:
             branches:
               ignore: master
