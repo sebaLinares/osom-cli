@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const inquirer = require('inquirer')
-const program = require('commander')
-const licenses = require('../modules/create-repo/data/data')
-const functionsCreateRepo = require('./../modules/create-repo/functions/functions')
-const createRepo = require('./../modules/create-repo/main')
+const inquirer = require('inquirer');
+const program = require('commander');
+const licenses = require('../modules/create-repo/data/data');
+const functionsCreateRepo = require('./../modules/create-repo/functions/functions');
+const createGithubRepositoryController = require('../core/controllers/create-github-repository.controller');
 
 const createRepoQuestions = [
   { name: 'name', message: 'Name of the repo' },
@@ -13,16 +13,23 @@ const createRepoQuestions = [
     type: 'list',
     name: 'license',
     message: 'What license do you want for your repo',
-    choices: licenses.licensesPlain
+    choices: licenses.licensesPlain,
   },
   { name: 'username', message: 'Enter your username' },
-  { type: 'password', name: 'password', message: 'Write your password' }
-]
+  { type: 'password', name: 'password', message: 'Write your password' },
+];
 
 inquirer.prompt(createRepoQuestions).then(answers => {
   // get keyword for the chosen license
-  const keyword = functionsCreateRepo.getLicenseKeywordByName(answers.license)
-  createRepo(answers.username, answers.password, answers.name, answers.description, keyword)
-})
+  const license = functionsCreateRepo.getLicenseKeywordByName(answers.license);
 
-program.parse(process.argv)
+  createGithubRepositoryController(
+    answers.username,
+    answers.password,
+    answers.name,
+    answers.description,
+    license,
+  );
+});
+
+program.parse(process.argv);
