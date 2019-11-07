@@ -24,6 +24,8 @@ workflows:
 
       # Only deploy on the master branch - after merging.
       - release:
+          requires:
+            - test_node_lts
           filters:
             branches:
               only: master
