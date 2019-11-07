@@ -1,17 +1,3 @@
-// coffee types
-exports.types = [
-  { name: 'Espresso', price: '$5.99' },
-  { name: 'Latte', price: '$4.50' },
-  { name: 'Cappuchino', price: '$3.99' },
-  { name: 'Americano', price: '$2.50' },
-  { name: 'Macchiato', price: '$3.50' }
-]
-
-// Generate a list to apply on 'Inquirer' config
-exports.typesPlain = exports.types.map(o => {
-  return o.name + ' (' + o.price + ')' // convert to one line
-})
-
 exports.licenses = [
   { name: 'Academic Free License v3.0', keyword: 'afl-3.0' },
   { name: 'Apache license 2.0', keyword: 'apache-2.0' },
@@ -25,7 +11,7 @@ exports.licenses = [
   { name: 'Creative Commons Attribution 4.0', keyword: 'cc-by-4.0' },
   {
     name: 'Creative Commons Attribution Share Alike 4.0',
-    keyword: 'cc-by-sa-4.0'
+    keyword: 'cc-by-sa-4.0',
   },
   { name: 'Do What The F*ck You Want To Public License', keyword: 'wtfpl' },
   { name: 'Educational Community License v2.0', keyword: 'ecl-2.0' },
@@ -48,9 +34,9 @@ exports.licenses = [
   { name: 'SIL Open Font License 1.1', keyword: 'ofl-1.1' },
   { name: 'University of Illinois/NCSA Open Source License', keyword: 'ncsa' },
   { name: 'The Unlicense', keyword: 'unlicense' },
-  { name: 'zLib License', keyword: 'zlib' }
-]
+  { name: 'zLib License', keyword: 'zlib' },
+];
 
 exports.licensesPlain = exports.licenses.map(license => {
-  return license.name
-})
+  return license.name;
+});
