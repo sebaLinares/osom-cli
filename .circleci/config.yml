@@ -18,9 +18,15 @@ jobs:
 workflows:
   version: 2
   test_and_release:
-    # Run the test jobs first, then the release only when all the test jobs are successful
     jobs:
-      - test_node_lts
+      # Only test in a feature branch
+      - test_node_lts:
+          filters:
+            branches:
+              ignore: master
+
+      # Only deploy on the master branch - after merging.
       - release:
-          requires:
-            - test_node_lts
+          filters:
+            branches:
+              only: master
