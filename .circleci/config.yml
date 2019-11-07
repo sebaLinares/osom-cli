@@ -5,8 +5,8 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
-      - run: "npm install"
-      - run: "npm run test"
+      - run: 'npm install'
+      - run: 'npm run test'
   release:
     docker:
       - image: circleci/node:lts
@@ -19,11 +19,8 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      # Only test in a feature branch
-      - test_node_lts:
-          filters:
-            branches:
-              ignore: master
+      # Test every branch
+      - test_node_lts
 
       # Only deploy on the master branch - after merging.
       - release:
