@@ -1,16 +1,17 @@
-const Response = require('../entities/Response');
+import { Response } from '../entities/Response';
 
-class GithubResponse {
-  responseToView(responseData) {
+export class GithubResponse {
+  responseToView(responseData: any) {
     return new Response({
       cloneUrl: responseData.data.clone_url,
     });
   }
 
-  errorToView(status, errorMessage, errorsArray) {
+  errorToView(status: any, errorMessage: any, errorsArray: any) {
     let errorMessages;
+
     if (errorsArray) {
-      errorMessages = errorsArray.map(error => error.message);
+      errorMessages = errorsArray.map((error: any) => error.message);
     }
 
     switch (status) {
@@ -22,9 +23,7 @@ class GithubResponse {
         return `${errorMessage}
 Because ${errorMessages.join(', ')}`;
       default:
-        return `Something went wrong, report this issue in http://github.com/sebaLinares/osom-cli`;
+        return 'Something went wrong, report this issue in http://github.com/sebaLinares/osom-cli';
     }
   }
 }
-
-module.exports = GithubResponse;

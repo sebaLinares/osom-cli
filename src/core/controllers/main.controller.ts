@@ -1,6 +1,6 @@
-const inquirer = require('inquirer');
-const { getCodeByName } = require('../../lib/functions');
-const { getGithubRepositoryAnswers } = require('./create-github-repository.controller');
+import inquirer from 'inquirer';
+import { getCodeByName } from '../../lib/functions.js';
+import { getGithubRepositoryAnswers } from './create-github-repository.controller.js';
 
 const options = [
   {
@@ -37,6 +37,4 @@ const taskToComplete = async () => {
   }
 };
 
-module.exports = {
-  taskToComplete,
-};
+export { taskToComplete };

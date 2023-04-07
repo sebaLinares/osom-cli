@@ -1,17 +1,15 @@
-const shell = require('shelljs');
-const colors = require('colors');
-const inquirer = require('inquirer');
-const ApiGithub = require('../frameworks/api-github');
-const { getCodeByName } = require('../../lib/functions');
-const GithubAdapter = require('../adapters/github.adapter');
+import shell from 'shelljs';
+import chalk from 'chalk';
+import inquirer from 'inquirer';
+import { ApiGithub } from '../frameworks/api-github';
+import { getCodeByName } from '../../lib/functions';
+import { GithubResponse } from '../adapters/github.adapter';
 
 // Usecase
-const CreateGithubRepository = require('../use-cases/create-github-repository.ucase');
+import { CreateGithubRepository } from '../use-cases/create-github-repository.ucase';
 
-colors.setTheme({
-  customColors: ['black', 'bgBrightYellow', 'bold'],
-  errorColors: ['red', 'bgWhite'],
-});
+const error = chalk.bgWhite.red;
+const custom = chalk.black.bgYellowBright.bold;
 
 const licenses = [
   { name: 'Academic Free License v3.0', code: 'afl-3.0' },
@@ -56,7 +54,7 @@ const createGithubRepository = async ({ username, password, name, description, l
   const repositoryData = constructRepositoryData({ name, description, licenseCode });
   const authData = constructAuthData({ username, password });
   const api = new ApiGithub(authData);
-  const githubAdapter = new GithubAdapter();
+  const githubAdapter = new GithubResponse();
   await CreateGithubRepository({
     api,
     githubAdapter,
@@ -89,11 +87,11 @@ const githubRepositoryQuestions = [
 
 const createGitIgnore = () => {
   shell.exec('echo /node_modules > .gitignore');
-  console.log('.gitignore CREATED'.customColors);
+  console.log(custom('.gitignore CREATED'));
 };
 
 const initializeGitRepository = () => {
-  console.log('Running git init'.customColors);
+  console.log(custom('Running git init'));
   shell.exec('git init');
 };
 
@@ -102,25 +100,25 @@ const addAndFirstCommit = () => {
 };
 
 const fetchAndRebaseOrigin = () => {
-  console.log('Fetch && Rebase'.customColors);
+  console.log(custom('Fetch && Rebase'));
   shell.exec('git fetch && git rebase origin/master');
 };
 
 const pushToRemote = () => {
-  console.log('Set upstream'.customColors);
+  console.log(custom('Set upstream'));
   shell.exec('git push --set-upstream origin master');
 };
 
 const createRepositorySuccessMessage = () => {
-  console.log(' ==================================================== '.customColors);
-  console.log(' All done! Local Repo Synced to remote and up to date '.customColors);
-  console.log(' ==================================================== '.customColors);
+  console.log(custom(' ==================================================== '));
+  console.log(custom(' All done! Local Repo Synced to remote and up to date '));
+  console.log(custom(' ==================================================== '));
 };
 
 const errorCallback = err => {
-  console.log(' ==================================================== '.customColors);
-  console.log(err.errorColors);
-  console.log(' ==================================================== '.customColors);
+  console.log(custom(' ==================================================== '));
+  console.log(error(err));
+  console.log(custom(' ==================================================== '));
 };
 
 const constructRepositoryData = ({ name, description, licenseCode }) => {
@@ -139,7 +137,7 @@ const constructAuthData = ({ username, password }) => {
 };
 
 const addRemote = remoteUrl => {
-  console.log('Remote added'.customColors);
+  console.log(custom('Remote added'));
   shell.exec(`git remote add origin ${remoteUrl}`);
 };
 
@@ -153,7 +151,4 @@ const successCallback = ({ cloneUrl }) => {
   createRepositorySuccessMessage();
 };
 
-module.exports = {
-  // createGithubRepository,
-  getGithubRepositoryAnswers,
-};
+export { getGithubRepositoryAnswers };

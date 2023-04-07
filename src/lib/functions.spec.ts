@@ -1,4 +1,4 @@
-const { getCodeByName } = require('./functions');
+import { getCodeByName } from './functions';
 
 test('Should return the keyword for the corresponding license name', () => {
   expect(

@@ -4,6 +4,12 @@ const CreateGithubRepository = async ({
   repositoryData,
   successCallback,
   errorCallback,
+}: {
+  api: any;
+  githubAdapter: any;
+  repositoryData: any;
+  successCallback: any;
+  errorCallback: any;
 }) => {
   try {
     const apiResponse = await api.sendPost(repositoryData);
@@ -35,4 +41,4 @@ const CreateGithubRepository = async ({
   }
 };
 
-module.exports = CreateGithubRepository;
+export { CreateGithubRepository };

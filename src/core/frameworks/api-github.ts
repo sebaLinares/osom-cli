@@ -1,6 +1,10 @@
-const axios = require('axios');
+import axios from 'axios';
 
-class ApiGithub {
+export class ApiGithub {
+  private readonly auth: any;
+  private readonly url: string;
+  private readonly headers: any;
+
   constructor(auth) {
     this.auth = auth;
     this.url = 'https://api.github.com/user/repos';
@@ -31,5 +35,3 @@ class ApiGithub {
     });
   }
 }
-
-module.exports = ApiGithub;
