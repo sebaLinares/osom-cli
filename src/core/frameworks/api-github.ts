@@ -1,37 +1,19 @@
-import axios from 'axios';
+import { Octokit } from 'octokit';
 
 export class ApiGithub {
-  private readonly auth: any;
-  private readonly url: string;
-  private readonly headers: any;
+  private readonly octokit: Octokit;
 
-  constructor(auth) {
-    this.auth = auth;
-    this.url = 'https://api.github.com/user/repos';
-    this.headers = {
-      'content-type': 'application/json',
-    };
+  constructor() {
+    this.octokit = new Octokit({
+      auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+    });
   }
 
-  sendPost(data) {
-    return new Promise((resolve, reject) => {
-      const config = {
-        url: this.url,
-        method: 'post',
-        headers: this.headers,
-        data: data,
-        auth: this.auth,
-      };
-
-      axios(config)
-        .then(data => {
-          // console.log( data );
-          resolve(data);
-        })
-        .catch(error => {
-          // console.log( error );
-          reject(error);
-        });
+  async sendPost(data) {
+    await this.octokit.request('POST /user/repos', {
+      name: data.name,
+      description: data.description,
+      license_template: data.license,
     });
   }
 }

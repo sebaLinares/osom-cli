@@ -1,9 +1,9 @@
 import shell from 'shelljs';
 import chalk from 'chalk';
-import inquirer from 'inquirer';
-import { ApiGithub } from '../frameworks/api-github';
-import { getCodeByName } from '../../lib/functions';
+import { ApiGithub } from './../frameworks/api-github';
+import { getCodeByName } from './../../lib/functions';
 import { GithubResponse } from '../adapters/github.adapter';
+import { prompt } from 'enquirer';
 
 // Usecase
 import { CreateGithubRepository } from '../use-cases/create-github-repository.ucase';
@@ -50,10 +50,15 @@ const licenses = [
   { name: 'zLib License', code: 'zlib' },
 ];
 
-const createGithubRepository = async ({ username, password, name, description, licenseCode }) => {
+const createGithubRepository = async ({ name, description, licenseCode }) => {
+  const githubCredentials = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+  if (!githubCredentials) {
+    console.log('Please set your Github Personal Access Token as an environment variable');
+    process.exit(1);
+  }
+
   const repositoryData = constructRepositoryData({ name, description, licenseCode });
-  const authData = constructAuthData({ username, password });
-  const api = new ApiGithub(authData);
+  const api = new ApiGithub();
   const githubAdapter = new GithubResponse();
   await CreateGithubRepository({
     api,
@@ -65,7 +70,11 @@ const createGithubRepository = async ({ username, password, name, description, l
 };
 
 const getGithubRepositoryAnswers = async () => {
-  const { license, ...rest } = await inquirer.prompt(githubRepositoryQuestions);
+  const { license, ...rest } = (await prompt(githubRepositoryQuestions)) as {
+    license: string;
+    name: string;
+    description: string;
+  };
   const licenseCode = getCodeByName(licenses, license);
   createGithubRepository({ licenseCode, ...rest });
 };
@@ -73,16 +82,14 @@ const getGithubRepositoryAnswers = async () => {
 const licenseNames = licenses.map(license => license.name);
 
 const githubRepositoryQuestions = [
-  { name: 'name', message: 'Name of the repository' },
-  { name: 'description', message: 'Enter a description for the repo' },
+  { type: 'input', name: 'name', message: 'Name of the repository' },
+  { type: 'input', name: 'description', message: 'Enter a description for the repo' },
   {
-    type: 'list',
+    type: 'select',
     name: 'license',
     message: 'What license do you want for your repo',
     choices: licenseNames,
   },
-  { name: 'username', message: 'Enter your username' },
-  { type: 'password', name: 'password', message: 'Write your password' },
 ];
 
 const createGitIgnore = () => {
@@ -126,13 +133,6 @@ const constructRepositoryData = ({ name, description, licenseCode }) => {
     name,
     description,
     license_template: licenseCode,
-  };
-};
-
-const constructAuthData = ({ username, password }) => {
-  return {
-    username,
-    password,
   };
 };
 

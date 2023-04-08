@@ -18,9 +18,6 @@ const CreateGithubRepository = async ({
   } catch (error) {
     // TODO
     if (error.response) {
-      // console.log(error.response.data);
-      // console.log(error.response.status);
-      // console.log(error.response.headers);
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx
       const errorToView = githubAdapter.errorToView(

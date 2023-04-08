@@ -1,4 +1,5 @@
-import inquirer from 'inquirer';
+// import inquirer from 'inquirer';
+import { prompt } from 'enquirer';
 import { getCodeByName } from '../../lib/functions.js';
 import { getGithubRepositoryAnswers } from './create-github-repository.controller.js';
 
@@ -17,7 +18,7 @@ const optionNames = options.map(option => option.name);
 
 const mainQuestions = [
   {
-    type: 'list',
+    type: 'select',
     name: 'mainOption',
     message: 'What do you want me to build for you?',
     choices: optionNames,
@@ -25,7 +26,7 @@ const mainQuestions = [
 ];
 
 const taskToComplete = async () => {
-  const { mainOption } = await inquirer.prompt(mainQuestions);
+  const { mainOption } = (await prompt(mainQuestions)) as { mainOption: string };
   const taskCode = getCodeByName(options, mainOption);
 
   switch (taskCode) {
