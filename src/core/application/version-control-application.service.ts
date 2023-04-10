@@ -9,6 +9,12 @@ export class VersionControlApplicationService {
   ) {}
 
   async createVersinControlRepository() {
+    const githubCredentials = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+    if (!githubCredentials) {
+      console.log('Please set your Github Personal Access Token as an environment variable');
+      process.exit(1);
+    }
+
     const {
       repositoryName,
       repositoryDescription,
