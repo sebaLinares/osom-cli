@@ -34,11 +34,16 @@ npx osom-cli osom
 
 ## Usage
 
+OSOM-CLI uses the [Github API](https://docs.github.com/en/rest/overview/authenticating-to-the-rest-api) to create a remote repository, so a [Github Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) is needed in order to be authorized.
+
 ![osom-cli](https://raw.githubusercontent.com/sebaLinares/screenshots/master/osom-cli/osom-demo.jpg)
 
 ```bash
 # Go to your preffered directory
 mkdir project-name && cd project-name
+
+# Create an .env file and add your Github Personal Access Token. Look at the documentation on personal access tokens provided above.
+echo 'GITHUB_PERSONAL_ACCESS_TOKEN=' > .env
 
 # Call osom cli
 osom
@@ -48,7 +53,7 @@ osom
 # 2. Write a description (optional)
 # 3. Choose a license for your project
 # 4. Enter your username
-# 5. Enter your gihtub password. It won't show as you type
+# 5. Enter your gihtub password. **Enter your Github Personal Access Token here**
 # 6. Start working. Enjoy your project.
 ```
 
