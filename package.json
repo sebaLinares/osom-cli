@@ -1,6 +1,6 @@
 {
   "name": "osom-cli",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "An awesome command line interface, for blazing fast project initialization",
   "main": "built/index.js",
   "types": "built/index.d.ts",
