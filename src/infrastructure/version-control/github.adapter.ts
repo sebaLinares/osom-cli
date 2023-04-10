@@ -15,11 +15,6 @@ export class GithubAdapter {
     license: string,
     privateRepo: boolean,
   ): Promise<void> {
-    console.log('Creating repository on Github...');
-    console.log('name: ', name);
-    console.log('description: ', description);
-    console.log('license: ', license);
-
     await this.github.request('POST /user/repos', {
       name,
       description,
