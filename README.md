@@ -1,4 +1,4 @@
-# OSOM CLI! &middot; [![license-badge](https://img.shields.io/npm/l/osom-cli)](https://github.com/sebaLinares/osom-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/osom-cli)](https://www.npmjs.com/package/osom-cli) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+# OSOM CLI! &middot; [![license-badge](https://img.shields.io/npm/l/osom-cli)](https://github.com/sebaLinares/osom-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/osom-cli)](https://www.npmjs.com/package/osom-cli) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 Tired of all the commands I had to write to create a new project and connect it to a new repo, I thought about a solution in the form a "personal cli". And because open source is _osom_, everyone else can have it an tweak it and whatever you want to do with it.
 
@@ -36,8 +36,6 @@ npx osom-cli osom
 
 OSOM-CLI uses the [Github API](https://docs.github.com/en/rest/overview/authenticating-to-the-rest-api) to create a remote repository, so a [Github Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) is needed in order to be authorized.
 
-![osom-cli](https://raw.githubusercontent.com/sebaLinares/screenshots/master/osom-cli/osom-demo.jpg)
-
 ```bash
 # Go to your preffered directory
 mkdir project-name && cd project-name
@@ -51,10 +49,11 @@ osom
 # Follow de instruction
 # 1. Choose a name for your repo
 # 2. Write a description (optional)
-# 3. Choose a license for your project
-# 4. Enter your username
-# 5. Enter your gihtub password. **Enter your Github Personal Access Token here**
-# 6. Start working. Enjoy your project.
+# 3. Choose if you wan't the repository to be private
+# 4. Choose a license for your project
+# 5. Enter your username
+# 6. Enter your gihtub password. **Enter your Github Personal Access Token here**
+# 7. Start working. Enjoy your project.
 ```
 
 ## :open_hands: Contributing
