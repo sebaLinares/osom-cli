@@ -5,4 +5,5 @@ export interface IQuestion {
   choices?: { name: string; value: string }[];
   result?: (...args) => string | Promise<string>;
   default?: unknown;
+  initial?: number;
 }

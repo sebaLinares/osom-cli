@@ -4,4 +4,6 @@ dotenv.config();
 
 import { createGithubRepository } from './infrastructure/controllers/create-github-repository.controller';
 
-createGithubRepository();
+createGithubRepository().then(() => {
+  process.exit();
+});

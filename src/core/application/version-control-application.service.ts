@@ -21,7 +21,7 @@ export class VersionControlApplicationService {
       repositoryLicense,
       isRepositoryPrivate,
     } = await this.promptService.promptQuestions(rawQuestions);
-    await this.versionControlService.createVersionControlRepository(
+    return await this.versionControlService.createVersionControlRepository(
       repositoryName,
       repositoryDescription,
       repositoryLicense,

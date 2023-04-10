@@ -14,8 +14,8 @@ export class GithubAdapter {
     description: string,
     license: string,
     privateRepo: boolean,
-  ): Promise<void> {
-    await this.github.request('POST /user/repos', {
+  ) {
+    return await this.github.request('POST /user/repos', {
       name,
       description,
       license_template: license,

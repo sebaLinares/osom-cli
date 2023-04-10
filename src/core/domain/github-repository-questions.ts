@@ -61,6 +61,7 @@ const rawQuestions: IQuestion[] = [
     name: 'repositoryLicense',
     message: 'What license should your project have?',
     choices: githubLicenses,
+    initial: 25,
     result: value => {
       return githubLicenses.find(license => license.name === value).value;
     },
